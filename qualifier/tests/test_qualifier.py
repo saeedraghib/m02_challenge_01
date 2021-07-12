@@ -13,9 +13,14 @@ from qualifier.filters import debt_to_income
 from qualifier.filters import loan_to_value
 from qualifier.filters import max_loan_size
 
+# def test_save_csv():
+#     # @TODO: Your code here!
+#     # Use Path from pathlib to output the test csv to ./data/output/qualifying_loans.csv
 def test_save_csv():
-    # @TODO: Your code here!
-    # Use Path from pathlib to output the test csv to ./data/output/qualifying_loans.csv
+    assert fileio.save_csv("./data/qualifying_loans.csv", [
+        ["Bank of Big - Premier Option",300000,0.85,0.47,740,3.6], 
+        ["General MBS Partners - Starter Plus",300000,0.85,0.36,670,4.05]
+    ])
 
 def test_calculate_monthly_debt_ratio():
     assert calculators.calculate_monthly_debt_ratio(1500, 4000) == 0.375
