@@ -28,3 +28,20 @@ def load_csv(csvpath):
         for row in csvreader:
             data.append(row)
     return data
+
+def save_csv(csvpath, loans):
+    """Write the list of loans to a CSV file to the path provided.
+
+    Args:
+        csvpath (Path): The csv file path to write to
+        loans: List of loans that the user qualifies for
+
+    """
+#     with open(csvpath, "w", newline='') as csvfile:
+# #        data = []
+#         csvwriter = csv.writer(csvfile)
+
+#         # Loop and read each row in the list
+#         for row in loans:
+#             # write each row to the file
+#             csvwriter.writerow(row.values())
