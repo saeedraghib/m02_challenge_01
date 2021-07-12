@@ -7,7 +7,7 @@ Example:
     $ python sr_app.py
 """
 import sys
-import csv
+# import csv
 import fire
 import questionary
 from pathlib import Path
@@ -35,7 +35,7 @@ def load_bank_data():
         The bank data from the data rate sheet CSV file.
     """
 
-    csvpath = questionary.text("Enter a file path to a rate-sheet (.csv):").ask()
+    csvpath = questionary.text("Enter a file path to a rate-sheet (.csv) - (example: './data/daily_rate_sheet.csv'):").ask()
     csvpath = Path(csvpath)
     if not csvpath.exists():
         sys.exit(f"Oops! Can't find this path: {csvpath}. Please verify that you have entered the correct path")
@@ -114,16 +114,24 @@ def save_qualifying_loans(qualifying_loans):
     """
     # @TODO: Complete the usability dialog for savings the CSV Files.
     # YOUR CODE HERE!
-    # save_csv("loans_found.csv", qualifying_loans)
-    csvpath = Path("loans_found.csv")
-    with open(csvpath, "w", newline='') as csvfile:
-
-        csvwriter = csv.writer(csvfile)
-
-        # Loop and read each row in the list
-        for row in qualifying_loans:
-            # write each row to the file
-            csvwriter.writerow(row)
+    if len(qualifying_loans) > 0:
+        save_data = questionary.text("Do you want to save the list of qualifying loans? (y=yes / n=no)").ask()
+        if save_data.lower() == "y" or save_data.lower() == "yes":
+            # Save qualifying loans
+            clients_name = questionary.text("What's your name?").ask()
+            name = clients_name.lower()
+            file_name = name+"_loans_found.csv"
+            # complete_path = path_name+file_name
+            complete_path = file_name
+            # print(complete_path)
+            csvpath = Path(complete_path)
+            # print(csvpath)
+            # Now that you have all the information, save the file.    
+            save_csv(csvpath, qualifying_loans)
+        else:
+            sys.exit(f"You have chosen not to save the list of qualifying loans. You can run the program again later to save the data.")
+    else:
+        sys.exit(f"Since no loans were found, change your filtering criteria.")
 
 
 def run():
@@ -140,9 +148,7 @@ def run():
         bank_data, credit_score, debt, income, loan_amount, home_value
     )
 
-    # Save qualifying loans
     save_qualifying_loans(qualifying_loans)
-
 
 if __name__ == "__main__":
     fire.Fire(run)

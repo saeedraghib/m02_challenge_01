@@ -1,30 +1,33 @@
 # *Loan Qualifier*
 
-Just after the title, introduce your project by describing attractively what the project is about and what is the main problem that inspires you to create this project or what is the main contribution for the potential user of your project.
+## **Description:**<br>
+This application asks for user data via a command line interface. The data is then used to help filter out loans that the user qualifies for based on the data wthat was entered.<br>
+### **New Feature:**<br>
+The NEW features that are being added are as follows:<br>
+* If no loans are found, no file is saved.
+* The list of loans that are found will be saved into a file based on the following criteria:<br>
+    * Client will be asked whether he/she want to save the data.
+        * If they say "y" for yes, then:
+            * They will be asked for their name.
+            * The client's name will be concatenated_with the filename. This will allow one file to be saved for each client.
+        * If the say "n" for no, then:
+            * The program will exist without saving a file.
 
 ---
 
 ## Technologies
 
-Describe the technologies required to use your project such as programming languages, libraries, frameworks, and operating systems. Be sure to include the specific versions of any critical dependencies that you have used in the stable version of your project.
-
----
-
-## Installation Guide
-
-In this section, you should include detailed installation notes containing code blocks and screenshots.
-
----
-
-## Examples
-
-This section should include screenshots, code blocks, or animations showing how your project works.
+The following packages and dependicies are need for the proper functioning of the application:
+### * sys
+### * fire
+### * questionary
 
 ---
 
 ## Usage
 
-This section should include screenshots, code blocks, or animations explaining how to use your project.
+In order to run the program, type the following at the terminal prompt:
+* ### python sr_app.py
 
 ---
 
@@ -37,4 +40,4 @@ This section should include screenshots, code blocks, or animations explaining h
 
 ## License
 
-When you share a project on a repository, especially a public one, it's important to choose the right license to specify others what they can and can not do with your source code and files. Use this section to include the licence you want to use.
+### Universit of California at Berkeley EXTENSION

@@ -45,3 +45,11 @@ def save_csv(csvpath, loans):
 #         for row in loans:
 #             # write each row to the file
 #             csvwriter.writerow(row.values())
+    with open(csvpath, "w", newline='') as csvfile:
+
+        csvwriter = csv.writer(csvfile)
+
+        # Loop and read each row in the list
+        for row in loans:
+            # write each row to the file
+            csvwriter.writerow(row)
