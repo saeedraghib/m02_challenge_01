@@ -37,14 +37,6 @@ def save_csv(csvpath, loans):
         loans: List of loans that the user qualifies for
 
     """
-#     with open(csvpath, "w", newline='') as csvfile:
-# #        data = []
-#         csvwriter = csv.writer(csvfile)
-
-#         # Loop and read each row in the list
-#         for row in loans:
-#             # write each row to the file
-#             csvwriter.writerow(row.values())
     with open(csvpath, "w", newline='') as csvfile:
 
         csvwriter = csv.writer(csvfile)

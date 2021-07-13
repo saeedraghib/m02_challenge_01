@@ -118,8 +118,8 @@ def save_qualifying_loans(qualifying_loans):
         save_data = questionary.text("Do you want to save the list of qualifying loans? (y=yes / n=no)").ask()
         if save_data.lower() == "y" or save_data.lower() == "yes":
             # Save qualifying loans
-            clients_name = questionary.text("What's your name?").ask()
-            name = clients_name.lower()
+            clients_name = questionary.text("What's your first name (no spaces in between names)?").ask()
+            name = clients_name.replace(" ", "").lower()
             file_name = name+"_loans_found.csv"
             # complete_path = path_name+file_name
             complete_path = file_name
